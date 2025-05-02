@@ -8,6 +8,8 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
+
+добавить разные размеры фав иконок
 */
 
 .page {
@@ -28,7 +30,7 @@
   margin-block-start: 100px;
   margin-block-end: 100px;
   font-family: var(--accentfont);
-  font-weight: var(--mainweight);
+  font-variation-settings: 'wght' var(--mainweight);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +46,7 @@
 
 .header__title {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  padding-block-end: 17px;
 }
 
 .header__text {
@@ -54,17 +57,21 @@
   display: flex;
   flex-direction: column;
   gap: 52px;
+  margin-block-end: 52px;
 }
 
 .moods__card {
-  display: flex;
-  flex-direction: column;
   border: 2px solid #000;
   background-color: #fff;
 }
 
 .card__title {
-  font-weight: var(--titleweight);
+  font-variation-settings: 'wght' var(--titleweight);
+  font-size: 18px;
+  display: block;
+  padding: 0 10px;
+  align-content: center;
+  min-block-size: 31px;
 }
 
 .card__pic-container {
@@ -73,17 +80,16 @@
 
 .card__label {
   position: absolute;
-  inset: 25px;
+  font-size: 14px;
+  top: 25px;
+  right: 25px;
   font-family: var(--accentfont);
   text-shadow:
   -1px 0 #fff, 
   0 1px #fff, 
   1px 0 #fff, 
   0 -1px #fff;
-}
-
-.card__pic {
-  inline-size: 100%;
+  mix-blend-mode: hard-light;
 }
 
 @supports((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
@@ -94,15 +100,88 @@
   }
 } 
 
+.card__pic {
+  inline-size: 100%;
+}
+
+.card__description-container {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 25px;
+}
+
+.card__description {
+  font-size: 18px;
+  line-height: 21px;
+}
+
 .card__button-container {
   align-self: end;
+  display: flex;
+  gap: 12px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: none;
+  align-self: center;
+}
+
+.button-style {
+  background-color: #fff;
+  border: 2px solid #000;
 }
 
 .card__like-button {
-  background-color: transparent;
-  border: none;
+  padding: 12.5px 37px;
 }
 
 .button__text {
   font-family: var( --accentfont);
+  font-size: 14px;
+}
+
+.save__container {
+  display: flex;
+  justify-content: center;
+  margin-block-end: 55px;
+}
+
+.save__button {
+  padding: 18.5px 21px;
+}
+
+.info-dialog::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.info-form {
+  font-family: var(--accentfont);
+  max-inline-size: 353px;
+  text-transform: uppercase;
+  display: grid;
+  padding: 30px;
+  grid-template-columns: 59px 1fr;
+  grid-template-rows: 100px 38px;
+}
+
+.info-floppy {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.info-text {
+  font-style: 14px;
+  line-height: 150%;
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.info-close {
+  grid-column: 1/3;
+  grid-row: 2/3;
+  padding: 12.5px 132.5px;
 }
