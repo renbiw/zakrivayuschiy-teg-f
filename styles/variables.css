@@ -6,4 +6,7 @@
   --titleweight: 700;
   --fullwidth: 100%;
   --gradient: repeating-linear-gradient(#d3d3d3, transparent 2px), repeating-linear-gradient(90deg, #d3d3d3, transparent 2px), repeating-linear-gradient(#e7e7e7, #1a1a1a);
+  --accentcolor: #000;
+  --contour-color: #000;
+  --animation-fill-color: #ff0000;
 }
