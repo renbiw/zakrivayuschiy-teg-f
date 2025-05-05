@@ -10,6 +10,7 @@
 
 
 добавить разные размеры фав иконок
+добавить фильтры для фото
 */
 
 .page {
@@ -142,24 +143,57 @@
 }
 
 .core {
-  transition: all linear;
-  transition-duration: 0.03s;
+  fill: #fff;
+  transition: fill 0.3s linear 0.03s;
 }
 
 .main-body {
-  transition: all linear;
-  transition-duration: 0s;
+  fill: #fff;
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:hover .core{
-  fill: var(--accentcolor);
-  transition: all 0.3s linear;
+  fill: var(--contour-color);
+  transition: fill 0.3s linear;
 }
 
 .card__icon-button:hover .main-body{
-  fill: var(--accentcolor);
-  transition: all 0.3s linear;
-  transition-duration: 0.05s;
+  fill: var(--contour-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.card__icon-button:active .core{
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:active .main-body{
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.05s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color);
+  transition: fill 0.3s linear 0.06s;
+}
+
+/*анимация*/
+.like-icon.is-liked .heart {
+  animation: scaling 0.3s 0.1s ease-in 1;
+}
+
+.like-icon.is-liked .sparks {
+  animation: visability 0.3s 0.3s ease-in 1;
 }
 
 /********/
@@ -262,4 +296,25 @@
   grid-row: 2/3;
   padding: 12.5px 132.5px;
   text-transform: uppercase;
+}
+
+@keyframes scaling {
+  from {
+    scale: 1;
+  }
+  
+  to {
+    scale: 1.25;
+  }
+  
+}
+
+@keyframes visability {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
