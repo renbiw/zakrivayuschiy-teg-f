@@ -4,9 +4,8 @@
   viewBox="0 0 21 21" 
   fill="none"
   xmlns="http://www.w3.org/2000/svg">
-  <symbol id="floppy" 
-      stroke="currentColor"
-      fill="currentColor">
+  <symbol id="floppy" stroke="currentColor"
+    fill="currentColor">  
     <rect width="1.61538" height="1.61538" fill="black"/>
     <rect y="1.61523" width="1.61538" height="1.61538" fill="black"/>
     <rect y="3.23096" width="1.61538" height="1.61538" fill="black"/>
@@ -87,5 +86,5 @@
     <rect x="21" y="8.07715" width="1.61538" height="1.61538" transform="rotate(-180 21 8.07715)" fill="black"/>
     <rect x="21" y="6.46143" width="1.61538" height="1.61538" transform="rotate(-180 21 6.46143)" fill="black"/>
     <rect x="21" y="4.84619" width="1.61538" height="1.61538" transform="rotate(-180 21 4.84619)" fill="black"/>
-  </symbol>
+ </symbol>
 </svg>

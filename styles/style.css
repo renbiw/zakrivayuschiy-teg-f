@@ -35,7 +35,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
+  background-color: var(--main-color);
   border: 2px solid var(--accentcolor);
   text-transform: uppercase;
   padding: clamp(7.5rem, 7.28rem + 0.94vw, 8.125rem) 0;
@@ -63,7 +63,7 @@
 
 .moods__card {
   border: 2px solid var(--accentcolor);
-  background-color: #fff;
+  background-color: var(--main-color);
 }
 
 .card__title {
@@ -79,6 +79,38 @@
   position: relative;
 }
 
+.moodsprintzero {
+  filter: saturate(158%);
+}
+
+.moodsprintone {
+  filter: brightness(200%);
+}
+
+.moodsprintoneafter {
+  filter: contrast(20%);
+}
+
+.moodsprinttwo {
+  filter: blur(3.2rem);
+}
+
+.moodsprinttwoafter {
+  filter: opacity(0.8);
+}
+
+.moodsprintthree {
+  filter: invert(0.7);
+}
+
+.moodsprintthreeafter {
+  filter: hue-rotate(-90deg);
+}
+
+.moodnow {
+  filter: sepia(80%);
+}
+
 .card__label {
   position: absolute;
   font-size: 14px;
@@ -86,18 +118,18 @@
   right: 25px;
   font-family: var(--accentfont);
   text-shadow:
-  -1px 0 #fff, 
-  0 1px #fff, 
-  1px 0 #fff, 
-  0 -1px #fff;
+  -1px 0 var(--main-color), 
+  0 1px var(--main-color), 
+  1px 0 var(--main-color), 
+  0 -1px var(--main-color);
   mix-blend-mode: hard-light;
   opacity: 50%;
 }
 
-@supports((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+@supports((text-stroke: 1px var(--main-color)) or (-webkit-text-stroke: 1px var(--main-color))) {
   .card__label {
-    -webkit-text-stroke: 1px #fff;
-    text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--main-color);
+    text-stroke: 1px var(--main-color);
     text-shadow: none;
   }
 } 
@@ -109,7 +141,7 @@
 .card__description-container {
   display: flex;
   flex-direction: column;
-  padding: 25px 25px 22.5px 25px;
+  padding: 25px 25px 26.7px 25px;
   gap: 25px;
   font-size: 18px;
   line-height: 21px;
@@ -125,6 +157,7 @@
   background-color: transparent;
   border: 2px solid transparent;
   align-self: center;
+  max-block-size: 38px;
 }
 
 .card__icon-button:focus {
@@ -143,12 +176,12 @@
 }
 
 .core {
-  fill: #fff;
+  fill: var(--main-color);
   transition: fill 0.3s linear 0.03s;
 }
 
 .main-body {
-  fill: #fff;
+  fill: var(--main-color);
   transition: fill 0.3s linear;
 }
 
@@ -172,6 +205,7 @@
   transition: fill 0.3s linear 0.05s;
 }
 
+/*переход в момент лайка*/
 .like-icon.is-liked .core {
   fill: var(--animation-fill-color);
   transition: fill 0.3s linear;
@@ -186,8 +220,18 @@
   fill: var(--animation-fill-color);
   transition: fill 0.3s linear 0.06s;
 }
+/*возврат в исходное состояние после лайка*/
+.like-icon .main-body {
+  fill: var(--main-color);
+  transition: fill 0.1s linear;
+}
 
-/*анимация*/
+.like-icon .contour {
+  fill: var(--contour-color);
+  transition: fill 0.1s linear;
+}
+
+/*анимация в момент лайка*/
 .like-icon.is-liked .heart {
   animation: scaling 0.3s 0.1s ease-in 1;
 }
@@ -199,7 +243,7 @@
 /********/
 
 .button-style {
-  background-color: #fff;
+  background-color: var(--main-color);
   border: 2px solid var(--accentcolor);
   transition: box-shadow 0.3s ease;
   position: relative;
@@ -225,17 +269,18 @@
 }
 
 .button-style:hover .button__text {
-  color: #fff;
+  color: var(--main-color);
 	mix-blend-mode: difference;
 }
 
 .button-style:hover .save__floppy {
-  color: #fff;
+  color: var(--main-color);
 	mix-blend-mode: difference;
 } 
 
 .card__like-button {
   padding: 5.5px 35px;
+  max-block-size: 38px;
 }
 
 .button__text {
@@ -253,7 +298,7 @@
 }
 
 .save__button {
-  padding: 11px 22px;
+  padding: 12px 22px;
 }
 
 .save__floppy {
@@ -316,5 +361,24 @@
 
   to {
     opacity: 1;
+  }
+}
+
+@media (width <= 375px) {
+  .header__title {
+    padding-block-end: 20px;
+  }
+
+  .card__title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .card__label {
+    right: 11px;
+  }
+
+  .card__description-container {
+    padding-top: 24px;
   }
 }
