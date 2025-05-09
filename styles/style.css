@@ -15,7 +15,7 @@
   align-items: center;
   font-family: var(--mainfont);
   background-image: var(--gradient);
-  background-color: #d3d3d3;
+  background-color: var(--main-color);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -42,12 +42,12 @@
   inline-size: clamp(375px, 70vw, 700px);
 }
 
-.header__title {
+.header__logo {
   padding-block-end: 17px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
-.header__text {
+.header__title {
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
 
@@ -76,35 +76,35 @@
   position: relative;
 }
 
-.mood-sprint-zero {
+.mood-saturate {
   filter: saturate(170%);
 }
 
-.mood-sprint-one {
+.mood-contrast {
   filter: contrast(150%);
 }
 
-.mood-sprint-one-after {
+.mood-shade-contrast {
   filter: hue-rotate(-90deg) contrast(120%);
 }
 
-.mood-sprint-two {
+.mood-brightness {
   filter: brightness(200%);
 }
 
-.mood-sprint-two-after {
+.mood-opacity {
   filter: opacity(0.7);
 }
 
-.mood-sprint-three {
+.mood-blur{
   filter: blur(0.09rem);
 }
 
-.mood-sprint-three-after {
+.mood-shade {
   filter: hue-rotate(-40deg);
 }
 
-.mood-now {
+.mood-sepia-invert {
   filter: sepia(12%) invert(0.9);
 }
 
@@ -167,78 +167,6 @@
   transition: border-color 0.3s ease;
 }
 
-/*анимация сердца*/
-.sparks {
-  opacity: 0;
-}
-
-.core {
-  fill: var(--main-color);
-  transition: fill 0.3s linear 0.03s;
-}
-
-.main-body {
-  fill: var(--main-color);
-  transition: fill 0.3s linear;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--contour-color);
-  transition: fill 0.3s linear;
-}
-
-.card__icon-button:hover .main-body {
-  fill: var(--contour-color);
-  transition: fill 0.3s linear 0.05s;
-}
-
-.card__icon-button:active .core {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s linear;
-}
-
-.card__icon-button:active .main-body {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0.05s;
-}
-
-/*переход в момент лайка*/
-.like-icon.is-liked .core {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s linear;
-}
-
-.like-icon.is-liked .main-body {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0.05s;
-}
-
-.like-icon.is-liked .contour {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s linear 0.06s;
-}
-/*возврат в исходное состояние после лайка*/
-.like-icon .main-body {
-  fill: var(--main-color);
-  transition: fill 0.1s linear;
-}
-
-.like-icon .contour {
-  fill: var(--contour-color);
-  transition: fill 0.1s linear;
-}
-
-/*анимация в момент лайка*/
-.like-icon.is-liked .heart {
-  animation: scaling 0.3s 0.1s ease-in 1;
-}
-
-.like-icon.is-liked .sparks {
-  animation: visability 0.3s 0.3s ease-in 1;
-}
-
-/********/
-
 .button-style {
   position: relative;
   border: 2px solid var(--accentcolor);
@@ -255,7 +183,7 @@
   outline: none;
 }
 
-.button-style:before {
+.button-style::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -265,31 +193,31 @@
   block-size: 100%;
 }
 
-.button-style:hover:before {
+.button-style:hover::before {
   inline-size: 100%;
 }
 
 .button-style:hover .button__text {
   color: var(--main-color);
-  mix-blend-mode: difference;
 }
 
 .button-style:hover .save__floppy {
   color: var(--main-color);
-  mix-blend-mode: difference;
 }
 
 .card__like-button {
-  padding: 5.5px 35px;
+  padding: 5.5px 0;
+  min-inline-size: 130px;
   max-block-size: 38px;
 }
 
 .button__text {
+  mix-blend-mode: difference;
+  color: var(--main-color);
   position: relative;
   z-index: 10;
   font-family: var(--accentfont);
   font-size: 14px;
-  transition: color 0.5s ease-in-out;
 }
 
 .save__container {
@@ -303,9 +231,10 @@
 }
 
 .save__floppy {
+  mix-blend-mode: difference;
+  color: var(--main-color);
   position: relative;
   z-index: 10;
-  transition: color 0.5s ease-in-out;
 }
 
 .info-dialog::backdrop {
@@ -346,7 +275,7 @@
 }
 
 @media (width <= 375px) {
-  .header__title {
+  .header__logo {
     padding-block-end: 20px;
   }
 
